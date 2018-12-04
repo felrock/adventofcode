@@ -1,7 +1,3 @@
-
-
-
-
 with open('input.txt', 'r') as f:
 
     lines = [ line for line in f ]

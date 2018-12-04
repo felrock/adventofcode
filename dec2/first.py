@@ -1,6 +1,3 @@
-
-
-
 with open('input.txt', 'r') as f:
 
     trip_sum = 0

@@ -135,18 +135,3 @@ with open('input.txt', 'r') as f:
                 ident = key
 
     print('Challenge 2 answer:',freqmin*int(ident))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,6 +1,3 @@
-
-
-
 with open('input.txt', 'r') as f:
     current_freq = 0
     freq_dict = {}
@@ -11,7 +8,6 @@ with open('input.txt', 'r') as f:
     # Store lines for re-use
     for line in f:
         lines.append(line)
-
 
     while not found:
 
@@ -26,6 +22,4 @@ with open('input.txt', 'r') as f:
                 break
 
             else:
-                print('Not seen before,', current_freq)
                 freq_dict[current_freq] = True
-    #print(t)
