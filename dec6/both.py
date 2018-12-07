@@ -47,15 +47,21 @@ def isEnclosed(name, grid):
     yhb = len(grid)-1
     xhb = len(grid[0])-1
 
+    for i in range(len(grid[0])):
+
+        if grid[ylb][i] == name:
+            return False
+
+        elif grid[yhb][i] == name:
+            return False
+
     for i in range(len(grid)):
 
-        for j in range(len(grid[0])):
+        if grid[i][xlb] == name:
+            return False
+        elif grid[i][xhb] == name:
+            return False
 
-            if grid[i][j] == name:
-
-                if i+1 > yhb or i-1 < ylb or j+1 > xhb or j-1 < xlb:
-
-                    return False
     return True
 
 def calcSize(name, grid):
@@ -108,29 +114,23 @@ if __name__ == '__main__':
             dist = getDistToNodes(coords, (j,i))
             dist.sort(key=lambda x:x[0])
 
+            # distance is shared by nodes
             if dist[0][0] == dist[1][0]:
-
                 grid[i][j] = '.'
 
             else:
-
                 grid[i][j] = dist[0][1]
 
     # Get the maximum area size that doesnt touch the array
     # boundries( is infinite )
     maxsize = 0
-    maxcoord = None
     for coord in coords:
 
         if isEnclosed(coord[1], grid):
-
             size = calcSize(coord[1], grid)
 
             if size > maxsize:
-
                 maxsize = size
-                maxcoord = coord
 
     print('First answer:', maxsize)
     print('Second answer', getRegionWithinDist(10000, coords))
-
